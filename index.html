@@ -4,302 +4,477 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bethpage Auto Repair (website concept)</title>
-<meta name="description" content="Website concept for Bethpage Auto Repair Inc on Hicksville Road: honest diagnostics and car repair in Bethpage, NY.">
+<meta name="description" content="Website concept for Bethpage Auto Repair Inc, 4260 Hicksville Rd, Bethpage, NY: diagnostics, brakes, maintenance, suspension and major repairs.">
 <meta name="robots" content="noindex">
+<script>document.documentElement.className+=" js"</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
- --paper:#f4efe4;--card:#fffdf7;--ink:#1b2333;--navy:#1d2b45;--soft:#555b66;--line:#d9d0bd;--red:#c4402a;--red-d:#a3321f;--green:#2f6b4f;
- --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:72px;--s8:104px;
- --wrap:1120px;--r:8px;
- --slab:"Zilla Slab",Rockwell,Georgia,serif;--sans:"Karla",system-ui,sans-serif;
+ --paper:#f3f1ec;--card:#fbfaf7;--ink:#111418;--ink2:#1b2027;--steel:#26384f;--orange:#ff5a1f;--orange-d:#c43c0a;
+ --line:#d9d5cc;--soft:#5a5f66;--good:#1f8a4c;
+ --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+ --ease:cubic-bezier(.2,.7,.2,1);--wrap:1240px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s4)}
-.skip{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:var(--s2) var(--s3);z-index:99}
-.skip:focus{left:var(--s3);top:var(--s3)}
-h1,h2,h3{font-family:var(--slab);font-weight:700;line-height:1.05;margin:0;letter-spacing:-.01em}
-.kick{font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red-d);margin:0 0 var(--s3)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 var(--s4);border-radius:var(--r);font:700 1rem var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer}
-.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red-d)}
-.btn-ink{border-color:var(--ink);color:var(--ink);background:transparent}.btn-ink:hover{background:var(--ink);color:#fff}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;z-index:99;background:var(--ink);color:#fff;padding:8px 16px}
+.skip:focus{left:16px;top:16px}
+h1,h2,h3{font-family:var(--sans);font-weight:800;font-stretch:125%;line-height:.98;letter-spacing:-.02em;margin:0;text-transform:uppercase}
+.mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.kick{display:flex;align-items:center;gap:10px;color:var(--orange-d);margin:0 0 18px}
+.kick b{font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:2px 7px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border:2px solid transparent;font-weight:800;font-stretch:112%;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn-o{background:var(--orange);color:var(--ink)}.btn-o:hover{background:#ff7442}
+.btn-k{background:var(--ink);color:#fff}.btn-k:hover{background:var(--steel)}
+.btn-l{border-color:var(--ink);color:var(--ink)}.btn-l:hover{background:var(--ink);color:#fff}
+.btn svg{width:18px;height:18px}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
 
-.concept{background:var(--navy);color:#e6e9f0;text-align:center;font-size:.82rem;padding:var(--s2) var(--s3)}
-.concept a{color:#fff;font-weight:700}
-header.site{border-bottom:2px solid var(--ink);background:var(--paper);position:sticky;top:0;z-index:40}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);min-height:72px}
-.badge{display:flex;align-items:center;gap:12px;text-decoration:none}
-.badge .seal{width:46px;height:46px;border-radius:50%;border:2.5px solid var(--ink);display:grid;place-items:center;font-family:var(--slab);font-weight:700;font-size:1rem;position:relative}
-.badge .seal::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed var(--ink)}
-.badge b{font-family:var(--slab);font-size:1.3rem;line-height:1}
-.badge small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:3px}
-nav.main ul{display:flex;gap:var(--s4);list-style:none;margin:0;padding:0}
-nav.main a{text-decoration:none;font-weight:700;padding:var(--s2) 0}
-nav.main a:hover{color:var(--red-d)}
-.menu-btn{display:none;min-height:44px;min-width:48px;padding:0 var(--s3);border:2px solid var(--ink);border-radius:var(--r);background:none;font:700 .9rem var(--sans);cursor:pointer}
-@media (max-width:860px){
- nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:2px solid var(--ink)}
- nav.main.open{display:block}
- nav.main ul{flex-direction:column;gap:0;padding:var(--s2) var(--s4) var(--s4)}
- nav.main a{display:block;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
- .menu-btn{display:inline-flex;align-items:center}
- .hd .call-top{display:none}
+.concept{background:var(--ink);color:#c9ccd1;font-size:.8rem;text-align:center;padding:7px 16px}
+.concept a{color:#fff;font-weight:600}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(243,241,236,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;min-height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-height:48px}
+.brand .m{width:44px;height:44px;background:var(--ink);color:var(--orange);display:grid;place-items:center;font-weight:900;font-stretch:125%;font-size:1rem;letter-spacing:-.02em}
+.brand b{display:block;font-weight:800;font-stretch:118%;font-size:1.05rem;text-transform:uppercase;line-height:1.05;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.nav{display:flex;gap:24px}
+.nav a{text-decoration:none;font-weight:600;font-size:.95rem;padding:12px 0;background:linear-gradient(var(--orange),var(--orange)) 0 100%/0 2px no-repeat;transition:background-size .3s var(--ease)}
+.nav a:hover{background-size:100% 2px}
+.hdr .tel{font-weight:800;font-stretch:112%;text-decoration:none;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center}
+.hdr .btn{min-height:46px;padding:0 18px;font-size:.85rem}
+.menu{display:none;min-height:46px;min-width:48px;border:2px solid var(--ink);background:none;font-weight:800;padding:0 14px;cursor:pointer;text-transform:uppercase;font-size:.85rem}
+@media(max-width:1060px){.hdr .tel{display:none}}
+@media(max-width:900px){
+ .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);flex-direction:column;gap:0;padding:6px 20px 18px;border-bottom:1px solid var(--line)}
+ .nav.open{display:flex}.nav a{padding:16px 0;border-bottom:1px solid var(--line);background:none}
+ .menu{display:inline-flex;align-items:center}.hdr .btn{display:none}
 }
 
-/* hero: quote-led */
-.hero{padding:var(--s7) 0 var(--s6)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:var(--s6);align-items:end}
-.hero .q{font-family:var(--slab);font-weight:700;font-size:clamp(3rem,8vw,6.4rem);line-height:.98;margin:0}
-.hero .q span{display:block}
-.hero .q span:nth-child(2){color:var(--red)}
-.hero .who{margin:var(--s3) 0 0;color:var(--soft);font-size:1rem}
-.hero .lead{font-size:1.15rem;margin:var(--s5) 0 var(--s4);max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:var(--s3)}
-.ticket{background:var(--card);border:2px solid var(--ink);border-radius:var(--r);padding:var(--s4);position:relative;box-shadow:8px 8px 0 var(--ink)}
-.ticket::before{content:"";position:absolute;left:-2px;right:-2px;top:52px;border-top:2px dashed var(--line)}
-.ticket h3{font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--s5)}
-.ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s3);font-size:.98rem}
-.ticket dt{color:var(--soft)}
-.ticket dd{margin:0;font-weight:700;text-align:right}
-.ticket .stars{color:#a7650d;letter-spacing:2px}
-.open-now{display:inline-block;margin-top:var(--s4);font-weight:700;font-size:.9rem;padding:6px 12px;border-radius:999px;background:#e5efe8;color:var(--green)}
-.open-now.closed{background:#f6e3df;color:var(--red-d)}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 72px;background:
+ linear-gradient(var(--paper),rgba(243,241,236,.6) 40%,var(--paper)),
+ repeating-linear-gradient(0deg,transparent 0 47px,rgba(38,56,79,.07) 47px 48px),
+ repeating-linear-gradient(90deg,transparent 0 47px,rgba(38,56,79,.07) 47px 48px)}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.4vw,6.1rem);letter-spacing:-.035em}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .l>span{display:block}
+.hero h1 .or{color:var(--orange-d)}
+.js .hero h1 .l>span{transform:translateY(105%);transition:transform .95s var(--ease);transition-delay:calc(var(--i)*110ms + 120ms)}
+.js .hero.go h1 .l>span{transform:none}
+.hero .lead{font-size:1.18rem;color:#3c4147;max-width:33em;margin:26px 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+/* shop card with gauge */
+.shop{background:var(--ink);color:#fff;padding:28px;position:relative;box-shadow:14px 14px 0 var(--orange)}
+.shop .top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#aab0b8;margin-bottom:6px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.status i{width:9px;height:9px;border-radius:50%;background:#7a8088}
+.status.open i{background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.2);animation:blink 2s ease-in-out infinite}
+@keyframes blink{50%{box-shadow:0 0 0 7px rgba(61,220,132,.05)}}
+.gauge{width:100%;max-width:340px;margin:4px auto 0}
+.gauge .trk{fill:none;stroke:#2c333c;stroke-width:16}
+.gauge .val{fill:none;stroke:var(--orange);stroke-width:16;stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.gauge .tk{stroke:#5d646d;stroke-width:2}
+.gauge .tk.b{stroke:#aab0b8;stroke-width:3}
+.gauge text{fill:#8b929b;font-family:var(--mono);font-size:11px}
+.gauge .needle{transform-origin:150px 150px;transform:rotate(-90deg);transition:transform 1.8s cubic-bezier(.3,1.25,.5,1) .5s}
+.go .gauge .needle{transform:rotate(var(--rot))}
+.go .gauge .val{stroke-dashoffset:calc(var(--len) * (1 - var(--frac)));transition:stroke-dashoffset 1.8s var(--ease) .5s}
+.reading{text-align:center;margin-top:10px}
+.reading b{display:block;font-weight:900;font-stretch:125%;font-size:3.2rem;line-height:1}
+.reading span{color:#aab0b8;font-size:.92rem}
+.shop dl{margin:22px 0 0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #2c333c}
+.shop dl div{padding:14px 0}
+.shop dl div:nth-child(odd){padding-right:14px;border-right:1px solid #2c333c}
+.shop dl div:nth-child(even){padding-left:16px}
+.shop dl div:nth-child(n+3){border-top:1px solid #2c333c}
+.shop dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#8b929b}
+.shop dd{margin:2px 0 0;font-weight:700}
+@media(max-width:980px){.hero-g{grid-template-columns:1fr;gap:44px}.shop{max-width:520px}}
+@media(max-width:520px){.hero{padding:40px 0 56px}.shop{padding:22px;box-shadow:8px 8px 0 var(--orange)}}
 
-/* how tommy works */
-.how{background:var(--navy);color:#fff}
-.how .kick{color:#f2a08f}
-.how-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s7);align-items:start}
-.how h2{font-size:clamp(2.2rem,4.5vw,3.6rem)}
-.how p.big{font-size:1.15rem;color:#d4daea;margin:var(--s4) 0 0}
-.flow{list-style:none;margin:0;padding:0}
-.flow li{display:grid;grid-template-columns:52px 1fr;gap:var(--s3);padding:var(--s4) 0;border-top:1px solid #34476c}
-.flow li:last-child{border-bottom:1px solid #34476c}
-.flow .n{width:44px;height:44px;border-radius:50%;border:2px solid #f2a08f;display:grid;place-items:center;font-family:var(--slab);font-weight:700;color:#f2a08f}
-.flow b{display:block;font-size:1.15rem;margin-bottom:2px}
-.flow span{color:#c3cbe0}
-@media (max-width:860px){.how-grid{grid-template-columns:1fr;gap:var(--s5)}}
+/* ticker band */
+.band{background:var(--orange);color:var(--ink);overflow:hidden;border-block:2px solid var(--ink)}
+.band .t{display:flex;gap:44px;width:max-content;padding:14px 0;animation:tick 30s linear infinite}
+.band span{display:flex;align-items:center;gap:44px;font-weight:800;font-stretch:125%;text-transform:uppercase;font-size:1.15rem;white-space:nowrap}
+.band span::after{content:"";width:10px;height:10px;background:var(--ink);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-section{padding:var(--s8) 0}
-@media (max-width:760px){section{padding:var(--s7) 0}}
-.sh{margin-bottom:var(--s6);max-width:680px}
-.sh h2{font-size:clamp(2.1rem,4.4vw,3.3rem)}
-.sh p{color:var(--soft);margin:var(--s3) 0 0}
+section{padding:104px 0}
+@media(max-width:760px){section{padding:72px 0}}
+.head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:end;margin-bottom:48px}
+.head h2{font-size:clamp(2.1rem,4.6vw,4rem)}
+.head p{margin:0;color:var(--soft);font-size:1.1rem;max-width:34em}
+@media(max-width:860px){.head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}}
 
-/* services as a work order */
-.wo{background:var(--card);border:2px solid var(--ink);border-radius:var(--r)}
-.wo-row{display:grid;grid-template-columns:1fr 2fr auto;gap:var(--s4);padding:var(--s4);border-bottom:1px solid var(--line);align-items:center}
-.wo-row:last-child{border-bottom:0}
-.wo-row h3{font-size:1.35rem}
-.wo-row p{margin:0;color:var(--soft)}
-.wo-row .box{width:26px;height:26px;border:2px solid var(--ink);border-radius:4px;position:relative}
-.wo-row .box::after{content:"";position:absolute;left:7px;top:2px;width:7px;height:13px;border:solid var(--red);border-width:0 3px 3px 0;transform:rotate(45deg)}
-@media (max-width:700px){.wo-row{grid-template-columns:1fr auto}.wo-row p{grid-column:1/-1;grid-row:2}}
+/* inspection: car + symptom finder */
+.insp{background:var(--card);border-block:1px solid var(--line)}
+.ig{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.bay{position:relative;background:var(--ink);color:#fff;padding:26px 26px 20px;display:flex;flex-direction:column;overflow:hidden}
+.bay::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.04) 31px 32px),repeating-linear-gradient(90deg,transparent 0 31px,rgba(255,255,255,.04) 31px 32px);pointer-events:none}
+.bay .top{position:relative;display:flex;justify-content:space-between;gap:12px;color:#8b929b}
+.car{position:relative;margin:auto 0;padding:24px 0 6px}
+.car svg{width:100%;height:auto;overflow:visible}
+.car .ln{fill:none;stroke:#e9ebee;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.car .ln2{fill:none;stroke:#6b737d;stroke-width:2;stroke-linecap:round}
+.car .gnd{stroke:#3a414a;stroke-width:2;stroke-dasharray:6 8}
+.js .car .ln,.js .car .ln2{stroke-dasharray:var(--l,3000);stroke-dashoffset:var(--l,3000);transition:stroke-dashoffset 2.2s cubic-bezier(.5,0,.2,1)}
+.js .car.in .ln,.js .car.in .ln2{stroke-dashoffset:0}
+.car .zone{fill:var(--orange);opacity:0;transition:opacity .4s}
+.car .zone.on{opacity:.28}
+.hs{position:absolute;transform:translate(-50%,-50%);width:48px;height:48px;border:0;background:none;cursor:pointer;padding:0;display:grid;place-items:center}
+.hs i{width:18px;height:18px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(255,90,31,.6);transition:transform .3s var(--ease),background .3s;animation:ping 2.4s ease-out infinite;animation-delay:var(--dl,0s)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,90,31,.55)}70%,100%{box-shadow:0 0 0 16px rgba(255,90,31,0)}}
+.hs:hover i,.hs[aria-pressed=true] i{transform:scale(1.35);background:#fff}
+.hs span{position:absolute;bottom:42px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#fff;color:var(--ink);font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;opacity:0;transition:opacity .2s;pointer-events:none}
+.hs:hover span,.hs:focus-visible span,.hs[aria-pressed=true] span{opacity:1}
+.js .hs{opacity:0;transition:opacity .5s}
+.js .car.in .hs{opacity:1;transition-delay:2s}
+.bay .legend{position:relative;color:#8b929b;font-size:.85rem;margin:6px 0 0}
+.finder{display:flex;flex-direction:column;gap:18px}
+.finder h3{font-size:1.35rem;font-stretch:112%}
+.sym{display:grid;gap:8px}
+.sym button{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:10px 16px;background:#fff;border:1.5px solid var(--line);text-align:left;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.sym button::after{content:"";width:10px;height:10px;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg);opacity:.5;flex:none}
+.sym button:hover{border-color:var(--ink)}
+.sym button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.res{margin-top:auto;background:#fff;border:1.5px solid var(--ink);padding:20px;position:relative}
+.res .mono{color:var(--orange-d)}
+.res h4{margin:6px 0 6px;font-weight:800;font-stretch:118%;font-size:1.3rem;text-transform:uppercase;line-height:1.1}
+.res p{margin:0 0 14px;color:#3c4147}
+.res .btn{min-height:50px;width:100%}
+.res.flash{animation:fl .5s var(--ease)}
+@keyframes fl{0%{transform:translateY(6px);opacity:.4}100%{transform:none;opacity:1}}
+@media(max-width:980px){.ig{grid-template-columns:1fr}}
+@media(max-width:520px){.bay{padding:18px 14px 14px}.hs{width:44px;height:44px}.hs i{width:15px;height:15px}}
 
-/* reviews */
-.rv{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s4)}
-.rv figure{margin:0;border-left:6px solid var(--red);background:var(--card);padding:var(--s5) var(--s5) var(--s4);border-radius:0 var(--r) var(--r) 0}
-.rv figure.main blockquote{font-size:1.6rem}
-.rv blockquote{margin:0 0 var(--s3);font-family:var(--slab);font-weight:500;font-size:1.3rem;line-height:1.35}
-.rv figcaption{color:var(--soft);font-size:.95rem}
-.rv .stack{display:grid;gap:var(--s4)}
-.tags{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s5)}
-.tags span{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.9rem}
-@media (max-width:820px){.rv{grid-template-columns:1fr}}
+/* visit steps */
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:0}
+.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.steps .bar{position:absolute;left:0;right:0;top:27px;height:2px;background:var(--orange);transform-origin:0 50%;transform:scaleX(1);z-index:1}
+.js .steps .bar{transform:scaleX(0);transition:transform 1.8s cubic-bezier(.6,.05,.3,1)}
+.js .steps.in .bar{transform:scaleX(1)}
+.steps li{position:relative;z-index:2}
+.steps .n{width:56px;height:56px;display:grid;place-items:center;background:var(--paper);border:2px solid var(--ink);font-weight:900;font-stretch:125%;font-size:1.1rem;margin-bottom:20px;transition:background .4s,color .4s}
+.js .steps.in li .n{background:var(--ink);color:var(--orange);transition-delay:calc(var(--i)*.4s + .2s)}
+.steps h3{font-size:1.2rem;font-stretch:112%;margin-bottom:8px;line-height:1.1}
+.steps p{margin:0;color:var(--soft)}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr;row-gap:36px}.steps::before,.steps .bar{display:none}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
 
-/* contact */
-.visit{background:var(--card);border-top:2px solid var(--ink)}
-.v-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
-.hours{width:100%;border-collapse:collapse}
-.hours td{padding:var(--s3) 0;border-bottom:1px solid var(--line)}
-.hours td:last-child{text-align:right;font-weight:700}
-.hours tr.today td{color:var(--red-d)}
-form.card{border:2px solid var(--ink);border-radius:var(--r);padding:var(--s5);background:var(--paper)}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.field{margin-bottom:var(--s3)}
-label{display:block;font-weight:700;font-size:.92rem;margin-bottom:var(--s1)}
-input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:2px solid #b9ad95;border-radius:var(--r);background:#fff;color:var(--ink);min-height:50px}
-input:focus,select:focus,textarea:focus{outline:3px solid var(--red);outline-offset:1px;border-color:var(--ink)}
-textarea{min-height:100px;resize:vertical}
-.err{color:#a3211b;font-size:.86rem;font-weight:700;margin-top:4px}
-.demo-note{font-size:.85rem;color:var(--soft);margin:var(--s3) 0 0}
-.ok{border:2px solid var(--ink);border-radius:var(--r);padding:var(--s6) var(--s5);background:var(--paper)}
-.ok h3{font-size:2rem;margin-bottom:var(--s3)}
-@media (max-width:860px){.v-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.row2{grid-template-columns:1fr}form.card{padding:var(--s4)}}
+/* services */
+.svc{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.svc li{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,1.2fr) 64px;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+.svc .ic{width:56px;height:56px;border:2px solid var(--ink);display:grid;place-items:center;transition:background .3s,color .3s}
+.svc .ic svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:clamp(1.35rem,2.6vw,2.1rem);font-stretch:118%}
+.svc p{margin:0;color:var(--soft)}
+.svc .nm{font-family:var(--mono);font-size:.8rem;color:var(--soft);text-align:right}
+.svc li:hover .ic{background:var(--orange)}
+.note{margin:18px 0 0;font-size:.88rem;color:var(--soft)}
+@media(max-width:760px){.svc li{grid-template-columns:56px 1fr;gap:6px 16px;padding:20px 0}.svc .ic{grid-row:span 2;width:52px;height:52px}.svc .nm{display:none}}
 
-footer{background:var(--ink);color:#cfd3dc;padding:var(--s6) 0 var(--s5);font-size:.92rem}
-.ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s4);padding-bottom:var(--s4);border-bottom:1px solid #333d50}
-footer b{color:#fff;font-family:var(--slab);font-size:1.2rem}
-footer a{color:#fff}
-.dis{font-size:.8rem;color:#9298a5;margin-top:var(--s4);max-width:72em}
-.mobile-call{display:none}
-@media (max-width:640px){.mobile-call{display:flex;position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.3)}body{padding-bottom:84px}}
+/* reputation */
+.rep{background:var(--ink);color:#fff}
+.rg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.big{font-weight:900;font-stretch:125%;font-size:clamp(6rem,16vw,13rem);line-height:.8;letter-spacing:-.05em;color:var(--orange)}
+.rep .sub{font-size:1.2rem;color:#c9ccd1;margin:18px 0 26px}
+.words{list-style:none;margin:0;padding:0;border-top:1px solid #2c333c}
+.words li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid #2c333c}
+.words b{font-weight:800;font-stretch:125%;font-size:clamp(1.6rem,3.6vw,2.8rem);text-transform:uppercase;letter-spacing:-.02em;color:#3a414a;transition:color .6s}
+.words li.in b{color:#fff}
+.words small{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#8b929b}
+.rep .btn-l{border-color:#fff;color:#fff}.rep .btn-l:hover{background:#fff;color:var(--ink)}
+@media(max-width:860px){.rg{grid-template-columns:1fr;gap:36px}}
+
+/* booking */
+.bg{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:28px;align-items:stretch}
+.form{background:#fff;border:2px solid var(--ink);display:flex;flex-direction:column}
+.form .top{display:flex;justify-content:space-between;gap:12px;padding:14px 22px;border-bottom:2px dashed var(--ink)}
+.form form{padding:22px;display:grid;gap:16px;flex:1;grid-template-rows:auto auto auto 1fr auto auto}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{display:grid;gap:6px;font-weight:700;font-size:.9rem}
+.fld input,.fld select,.fld textarea{width:100%;min-height:52px;border:1.5px solid var(--ink);background:var(--card);padding:12px 14px;font:inherit;font-weight:400;font-size:1rem;border-radius:0}
+.fld textarea{min-height:100px;height:100%;resize:vertical}
+.fld:has(textarea){grid-template-rows:auto 1fr}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:3px solid var(--orange);outline-offset:0}
+.err{color:#b3261e;font-size:.85rem;font-weight:600}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink)}
+.seg button{min-height:50px;border:0;background:var(--card);font-weight:700;cursor:pointer}
+.seg button+button{border-left:1.5px solid var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.demo{font-size:.86rem;color:var(--soft);margin:0;border-top:2px dashed var(--ink);padding-top:14px}
+.ok{padding:40px 24px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.ok h3{font-size:2rem;margin-bottom:10px}
+.hrs{background:var(--ink);color:#fff;padding:26px;display:flex;flex-direction:column}
+.hrs h3{font-size:1.4rem;font-stretch:112%;margin:10px 0 14px}
+.hrs table{width:100%;border-collapse:collapse}
+.hrs td{padding:11px 0;border-bottom:1px solid #2c333c}
+.hrs td+td{text-align:right;font-family:var(--mono);font-size:.9rem;color:#c9ccd1}
+.hrs tr.today td{color:var(--orange)}
+.hrs tr.today td:first-child::after{content:" · today";font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.hrs .addr{margin-top:auto;padding-top:22px}
+.hrs .addr b{display:block;font-weight:800;font-stretch:112%;font-size:1.25rem;text-transform:uppercase;line-height:1.15}
+.hrs .addr span{color:#aab0b8}
+.hrs .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.hrs .acts .btn{min-height:52px;padding:0 12px;font-size:.82rem}
+.hrs .btn-l{border-color:#fff;color:#fff}.hrs .btn-l:hover{background:#fff;color:var(--ink)}
+@media(max-width:980px){.bg{grid-template-columns:1fr}}
+@media(max-width:520px){.f2{grid-template-columns:1fr}.form form{padding:18px}.hrs{padding:20px}}
+
+footer{background:#0b0d10;color:#aab0b8;padding:36px 0 40px;font-size:.88rem}
+footer .r{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid #22272e}
+footer b{color:#fff}
+footer a{display:inline-flex;align-items:center;min-height:44px}
+footer .dis{margin:18px 0 0;max-width:74em;font-size:.8rem}
+.mbar{display:none}
+@media(max-width:640px){.mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;border-top:2px solid var(--ink)}.mbar .btn{min-height:58px}body{padding-bottom:58px}}
+
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .rv{opacity:1;transform:none}.js .hero h1 .l>span{transform:none}
+ .gauge .needle{transform:rotate(var(--rot))}.gauge .val{stroke-dashoffset:calc(var(--len) * (1 - var(--frac)))}
+ .js .car .ln,.js .car .ln2{stroke-dashoffset:0}.js .hs{opacity:1}
+ .js .steps .bar{transform:none}.js .steps li .n{background:var(--ink);color:var(--orange)}
+ .words b{color:#fff}
+}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="concept">Website concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>. A sample, not an official Bethpage Auto Repair site.</div>
-<header class="site">
- <div class="wrap hd">
-  <a class="badge" href="#top" aria-label="Bethpage Auto Repair, home"><span class="seal" aria-hidden="true">BAR</span><span><b>Bethpage Auto Repair</b><small>Hicksville Road &middot; Bethpage</small></span></a>
-  <nav class="main" id="nav" aria-label="Main"><ul>
-   <li><a href="#how">How we work</a></li>
-   <li><a href="#services">Services</a></li>
-   <li><a href="#reviews">Reviews</a></li>
-   <li><a href="#visit">Hours &amp; contact</a></li>
-  </ul></nav>
-  <div style="display:flex;gap:8px;align-items:center">
-   <a class="btn btn-red call-top" href="tel:+15167356671" style="min-height:44px">(516) 735-6671</a>
-   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
-  </div>
- </div>
-</header>
 
-<main id="main">
-<section class="hero" id="top" style="padding-bottom:var(--s7)">
- <div class="wrap hero-grid">
-  <div>
-   <p class="kick">What customers say first</p>
-   <p class="q"><span>Honest.</span><span>Trustworthy.</span><span>Fair.</span></p>
-   <p class="who">Theresa, Google review</p>
-   <p class="lead">Bethpage Auto Repair is the shop on Hicksville Road where Tommy shows you what's wrong before anything gets fixed. Clear diagnostics, fair prices and no work you didn't ask for.</p>
-   <div class="cta">
-    <a class="btn btn-red" href="tel:+15167356671">Call (516) 735-6671</a>
-    <a class="btn btn-ink" href="#visit">Request an appointment</a>
+<header class="hdr"><div class="wrap">
+ <a class="brand" href="#top"><span class="m" aria-hidden="true">BA</span><span><b>Bethpage Auto Repair</b><small>4260 Hicksville Rd</small></span></a>
+ <nav class="nav" id="nav" aria-label="Main"><a href="#inspect">What's wrong?</a><a href="#visit">How a visit works</a><a href="#services">Services</a><a href="#book">Hours &amp; booking</a></nav>
+ <a class="tel" href="tel:+15167356671">(516) 735-6671</a>
+ <a class="btn btn-o" href="#book">Book a visit</a>
+ <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>
+
+<main id="main" tabindex="-1">
+<section class="hero" id="top"><div class="wrap hero-g">
+ <div>
+  <h1><span class="l"><span style="--i:0">The honest</span></span><span class="l"><span style="--i:1">shop on</span></span><span class="l"><span class="or" style="--i:2">Hicksville Rd.</span></span></h1>
+  <p class="lead rv" style="--d:4">Bethpage Auto Repair checks your car properly, shows you what's wrong and gives you a straight price before any work starts. Customers on Google keep coming back to one word: honest.</p>
+  <div class="cta rv" style="--d:5"><a class="btn btn-o" href="#book">Book a visit</a><a class="btn btn-l" href="tel:+15167356671">Call (516) 735-6671</a></div>
+ </div>
+ <aside class="shop rv" style="--d:2" aria-label="Shop at a glance">
+  <div class="top"><span class="mono">Google rating</span><span class="status" id="st"><i></i><span id="stT">Checking hours</span></span></div>
+  <svg class="gauge" id="gauge" viewBox="0 0 300 170" aria-hidden="true"></svg>
+  <div class="reading"><b>4.9</b><span>out of 5 from 55 Google reviews</span></div>
+  <dl>
+   <div><dt>Mon to Fri</dt><dd>9 AM to 5 PM</dd></div>
+   <div><dt>Saturday</dt><dd>9 AM to 1 PM</dd></div>
+   <div><dt>Address</dt><dd>4260 Hicksville Rd</dd></div>
+   <div><dt>Town</dt><dd>Bethpage, NY 11714</dd></div>
+  </dl>
+ </aside>
+</div></section>
+
+<div class="band" aria-hidden="true"><div class="t"><span>Diagnosis first</span><span>You see it before you pay</span><span>Straight prices</span><span>Only the work you approve</span><span>Diagnosis first</span><span>You see it before you pay</span><span>Straight prices</span><span>Only the work you approve</span></div></div>
+
+<section class="insp" id="inspect" tabindex="-1"><div class="wrap">
+ <div class="head">
+  <div class="rv"><p class="mono kick"><b>01</b>What's wrong?</p><h2>Tell us what the car is doing.</h2></div>
+  <p class="rv" style="--d:1">Pick what you're noticing, or tap a spot on the car. You'll see where the shop would look first, then book a diagnosis in one tap.</p>
+ </div>
+ <div class="ig">
+  <div class="bay rv">
+   <div class="top"><span class="mono">Inspection bay</span><span class="mono" id="bayLbl">Tap a point</span></div>
+   <div class="car" id="car">
+    <svg viewBox="0 0 1000 330" aria-hidden="true">
+     <line class="gnd" x1="20" y1="314" x2="980" y2="314"/>
+     <path class="zone" data-z="diag" d="M300 168 Q340 122 385 104 Q440 86 512 86 L 700 160 L 720 168 Z"/>
+     <path class="zone" data-z="engine" d="M720 166 L 775 162 Q 880 172 918 190 Q 940 200 940 222 L 940 236 L 860 236 Q 830 186 776 186 Q 735 186 712 214 Z"/>
+     <circle class="zone" data-z="brakes" cx="776" cy="250" r="62"/>
+     <circle class="zone" data-z="susp" cx="250" cy="250" r="62"/>
+     <path class="zone" data-z="maint" d="M330 250 L 700 250 L 700 272 L 330 272 Z"/>
+     <path class="ln" style="--l:2600" d="M60 250 L60 214 Q62 192 96 186 L250 170 Q300 122 362 96 Q425 74 520 74 Q620 74 690 108 L772 160 Q880 172 920 190 Q946 201 946 226 L946 250 L 852 250 A 76 76 0 0 0 700 250 L 326 250 A 76 76 0 0 0 174 250 Z"/>
+     <path class="ln2" style="--l:900" d="M288 168 Q332 124 382 104 Q432 90 500 90 L 504 168 Z M524 168 L520 90 Q600 92 652 116 L 722 166 Z"/>
+     <path class="ln2" style="--l:400" d="M512 176 L 516 246 M 600 196 L 630 196 M 420 196 L 450 196 M 912 202 L 940 206 M 64 206 L 84 204"/>
+     <circle class="ln" style="--l:420" cx="250" cy="250" r="60"/><circle class="ln2" style="--l:200" cx="250" cy="250" r="26"/>
+     <circle class="ln" style="--l:420" cx="776" cy="250" r="60"/><circle class="ln2" style="--l:200" cx="776" cy="250" r="26"/>
+    </svg>
+   </div>
+   <p class="legend">Line drawing for illustration. Not your car.</p>
+  </div>
+  <div class="finder rv" style="--d:1">
+   <h3>What are you noticing?</h3>
+   <div class="sym" id="sym"></div>
+   <div class="res" id="res" aria-live="polite">
+    <span class="mono" id="rArea">Where we'd look first</span>
+    <h4 id="rTitle">Pick a symptom</h4>
+    <p id="rText">Choose one on the left, or tap an orange point on the car, and this card will show the part of the car the shop would check first.</p>
+    <a class="btn btn-k" href="#book" id="rBtn">Book a diagnosis</a>
    </div>
   </div>
-  <aside class="ticket" aria-label="Shop details">
-   <h3>Shop card</h3>
-   <dl>
-    <dt>Google rating</dt><dd><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9</dd>
-    <dt>Reviews</dt><dd>55</dd>
-    <dt>Weekdays</dt><dd>9 AM to 5 PM</dd>
-    <dt>Saturday</dt><dd>9 AM to 1 PM</dd>
-    <dt>Address</dt><dd>4260 Hicksville Rd</dd>
-   </dl>
-   <span class="open-now" id="openNow">Checking hours...</span>
+ </div>
+</div></section>
+
+<section id="visit" tabindex="-1"><div class="wrap">
+ <div class="head">
+  <div class="rv"><p class="mono kick"><b>02</b>How a visit works</p><h2>You see the problem before you pay.</h2></div>
+  <p class="rv" style="--d:1">Reviews keep describing the same visit: the car gets checked, the problem gets explained and the price is straight. Here's that visit, step by step.</p>
+ </div>
+ <ol class="steps" id="steps">
+  <span class="bar" aria-hidden="true"></span>
+  <li style="--i:0"><span class="n">01</span><h3>Tell us what's happening</h3><p>A noise, a light on the dash, a pull to one side. Call or send the form.</p></li>
+  <li style="--i:1"><span class="n">02</span><h3>Diagnosis first</h3><p>The car gets checked properly before anyone talks about parts.</p></li>
+  <li style="--i:2"><span class="n">03</span><h3>We show you</h3><p>You see what's worn or broken and hear what it costs to fix.</p></li>
+  <li style="--i:3"><span class="n">04</span><h3>You decide</h3><p>Only the work you approve gets done. Then you're back on the road.</p></li>
+ </ol>
+</div></section>
+
+<section class="insp" id="services" tabindex="-1" style="background:var(--paper)"><div class="wrap">
+ <div class="head">
+  <div class="rv"><p class="mono kick"><b>03</b>Services</p><h2>From oil changes to the big jobs.</h2></div>
+  <p class="rv" style="--d:1">Everyday maintenance and the larger repairs. Not on the list? Call and ask.</p>
+ </div>
+ <ul class="svc">
+  <li class="rv"><span class="ic"><svg viewBox="0 0 32 32"><path d="M5 22a11 11 0 1 1 22 0"/><path d="M16 22l6-7"/><circle cx="16" cy="22" r="1.6"/><path d="M8 22h2M22 22h2M16 12v2"/></svg></span><h3>Diagnostics</h3><p>Check engine lights, strange noises and problems that come and go.</p><span class="nm">SVC 01</span></li>
+  <li class="rv"><span class="ic"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="3.5"/><path d="M16 6.5v2M16 23.5v2M6.5 16h2M23.5 16h2"/><path d="M24 7a12 12 0 0 1 3 6"/></svg></span><h3>Brakes</h3><p>Pads, rotors and brake lines, checked and explained.</p><span class="nm">SVC 02</span></li>
+  <li class="rv"><span class="ic"><svg viewBox="0 0 32 32"><path d="M16 4c4 6 8 10 8 15a8 8 0 0 1-16 0c0-5 4-9 8-15z"/><path d="M12.5 20a3.5 3.5 0 0 0 3.5 3.5"/></svg></span><h3>Maintenance</h3><p>Oil changes, fluids, filters, belts and tune-ups.</p><span class="nm">SVC 03</span></li>
+  <li class="rv"><span class="ic"><svg viewBox="0 0 32 32"><path d="M9 5h14M9 27h14"/><path d="M11 8l10 3-10 3 10 3-10 3 10 3"/></svg></span><h3>Suspension &amp; steering</h3><p>Clunks, pulling and rough rides sorted out.</p><span class="nm">SVC 04</span></li>
+  <li class="rv"><span class="ic"><svg viewBox="0 0 32 32"><path d="M6 12h4l2-3h8v3h3l2 3v6h-3v3H12l-2-3H6z"/><path d="M3 15v5M14 9V6h6"/></svg></span><h3>Big jobs</h3><p>Engine work and major repairs, done right the first time.</p><span class="nm">SVC 05</span></li>
+ </ul>
+ <p class="note">Service list for this concept. Confirm the full list with the shop.</p>
+</div></section>
+
+<section class="rep" id="reviews" tabindex="-1"><div class="wrap rg">
+ <div class="rv">
+  <p class="mono kick" style="color:var(--orange)"><b style="background:#1b2027;color:#fff;border-color:#2c333c">04</b>Reputation</p>
+  <div class="big">4.9</div>
+  <p class="sub">out of 5 stars from 55 Google reviews.</p>
+  <a class="btn btn-l" href="https://www.google.com/maps/search/?api=1&amp;query=Bethpage+Auto+Repair+4260+Hicksville+Rd+Bethpage+NY" target="_blank" rel="noopener">Read the reviews on Google</a>
+ </div>
+ <div>
+  <p class="mono" style="color:#8b929b;margin:0 0 10px">What customers bring up most</p>
+  <ul class="words" id="words">
+   <li><b>Honesty</b><small>Google topic</small></li>
+   <li><b>Honest mechanic</b><small>Google topic</small></li>
+   <li><b>Quality work</b><small>Google topic</small></li>
+   <li><b>Big jobs</b><small>Google topic</small></li>
+  </ul>
+ </div>
+</div></section>
+
+<section id="book" tabindex="-1"><div class="wrap">
+ <div class="head">
+  <div class="rv"><p class="mono kick"><b>05</b>Hours &amp; booking</p><h2>Book a visit.</h2></div>
+  <p class="rv" style="--d:1">Send a request and the shop calls you back to set the time. Or just call, Monday to Saturday.</p>
+ </div>
+ <div class="bg">
+  <div class="form rv">
+   <div class="top mono"><span>Repair request</span><span>Demo</span></div>
+   <form id="form" novalidate>
+    <div class="f2">
+     <label class="fld">Name<input id="f-name" autocomplete="name" required><span class="err" hidden>Please add your name.</span></label>
+     <label class="fld">Phone<input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="err" hidden>Please add a phone number.</span></label>
+    </div>
+    <div class="f2">
+     <label class="fld">Car (year, make, model)<input id="f-car" required placeholder="e.g. 2017 Honda Accord"><span class="err" hidden>Please add your car.</span></label>
+     <label class="fld">Preferred day<select id="f-day"></select></label>
+    </div>
+    <div><p class="fld" style="margin:0 0 6px">Drop-off</p><div class="seg" id="seg"><button type="button" aria-pressed="true">Morning</button><button type="button" aria-pressed="false">Afternoon</button></div></div>
+    <label class="fld">What's going on?<textarea id="f-msg"></textarea></label>
+    <button class="btn btn-o" type="submit" style="width:100%">Send request</button>
+    <p class="demo"><b>Demo form.</b> This is a website concept. Nothing is sent or saved.</p>
+   </form>
+   <div class="ok" id="ok" hidden tabindex="-1"><h3>Demo complete.</h3><p>On the real site this request would go straight to the shop, and they'd call you back to set a time. Nothing was sent or saved.</p><button class="btn btn-k" type="button" id="again">Start over</button></div>
+  </div>
+  <aside class="hrs rv" style="--d:1">
+   <span class="status" id="st2"><i></i><span id="stT2">Checking hours</span></span>
+   <h3>Shop hours</h3>
+   <table id="hrs"></table>
+   <div class="addr"><b>4260 Hicksville Rd</b><span>Bethpage, NY 11714</span>
+    <div class="acts"><a class="btn btn-o" href="tel:+15167356671">Call</a><a class="btn btn-l" href="https://www.google.com/maps/dir/?api=1&amp;destination=4260+Hicksville+Rd+Bethpage+NY+11714" target="_blank" rel="noopener">Directions</a></div>
+   </div>
   </aside>
  </div>
-</section>
-
-<section class="how" id="how">
- <div class="wrap how-grid">
-  <div>
-   <p class="kick">How we work</p>
-   <h2>You see the problem before you pay for the fix.</h2>
-   <p class="big">Reviews keep saying the same thing: Tommy explains what's wrong, shows you, and gives you a straight price. That is how the whole visit works.</p>
-  </div>
-  <ol class="flow">
-   <li><span class="n">1</span><div><b>Tell us what you're noticing</b><span>A noise, a light on the dash, a pull to one side. Call or send the form.</span></div></li>
-   <li><span class="n">2</span><div><b>Diagnosis first</b><span>The car gets checked properly before anyone talks about parts.</span></div></li>
-   <li><span class="n">3</span><div><b>We show you</b><span>You see what's worn or broken and hear what it costs to fix.</span></div></li>
-   <li><span class="n">4</span><div><b>You decide</b><span>Only the work you approve gets done. Then you're back on the road.</span></div></li>
-  </ol>
- </div>
-</section>
-
-<section id="services">
- <div class="wrap">
-  <div class="sh">
-   <p class="kick">Services</p>
-   <h2>From an oil change to the big jobs.</h2>
-   <p>Everyday maintenance and the larger repairs other shops send away. Not on the list? Call and ask.</p>
-  </div>
-  <div class="wo" role="list">
-   <div class="wo-row" role="listitem"><h3>Diagnostics</h3><p>Check engine lights, strange noises and problems that come and go.</p><span class="box" aria-hidden="true"></span></div>
-   <div class="wo-row" role="listitem"><h3>Brakes</h3><p>Pads, rotors and brake lines, checked and explained.</p><span class="box" aria-hidden="true"></span></div>
-   <div class="wo-row" role="listitem"><h3>Maintenance</h3><p>Oil changes, fluids, filters, belts and tune-ups.</p><span class="box" aria-hidden="true"></span></div>
-   <div class="wo-row" role="listitem"><h3>Suspension &amp; steering</h3><p>Clunks, pulling and rough rides sorted out.</p><span class="box" aria-hidden="true"></span></div>
-   <div class="wo-row" role="listitem"><h3>Big jobs</h3><p>Engine and major repairs, done right the first time.</p><span class="box" aria-hidden="true"></span></div>
-  </div>
- </div>
-</section>
-
-<section id="reviews" style="padding-top:0">
- <div class="wrap">
-  <div class="sh">
-   <p class="kick">Reviews</p>
-   <h2>4.9 stars from 55 Google reviews.</h2>
-  </div>
-  <div class="rv">
-   <figure class="main"><blockquote>&ldquo;Tommy is the most honest mechanic I've ever had the pleasure of meeting.&rdquo;</blockquote><figcaption>Sara D., Google review</figcaption></figure>
-   <div class="stack">
-    <figure><blockquote>&ldquo;Most respected mechanic in town while still providing quality work.&rdquo;</blockquote><figcaption>Angelo M., Google review</figcaption></figure>
-    <figure><blockquote>&ldquo;Honest. Trustworthy. Fair. Very rare in this industry.&rdquo;</blockquote><figcaption>Theresa, Google review</figcaption></figure>
-   </div>
-  </div>
-  <div class="tags" aria-label="Words that come up most in reviews"><span>honesty</span><span>honest mechanic</span><span>quality work</span><span>big jobs</span></div>
- </div>
-</section>
-
-<section class="visit" id="visit">
- <div class="wrap v-grid">
-  <div>
-   <p class="kick">Hours &amp; contact</p>
-   <h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:var(--s3)">4260 Hicksville Rd, Bethpage, NY 11714</h2>
-   <p style="margin:0 0 var(--s4)"><a href="tel:+15167356671" style="font-family:var(--slab);font-weight:700;font-size:2rem;text-decoration:none">(516) 735-6671</a></p>
-   <table class="hours" aria-label="Hours"><tbody id="hrs">
-    <tr data-d="1"><td>Monday</td><td>9 AM to 5 PM</td></tr>
-    <tr data-d="2"><td>Tuesday</td><td>9 AM to 5 PM</td></tr>
-    <tr data-d="3"><td>Wednesday</td><td>9 AM to 5 PM</td></tr>
-    <tr data-d="4"><td>Thursday</td><td>9 AM to 5 PM</td></tr>
-    <tr data-d="5"><td>Friday</td><td>9 AM to 5 PM</td></tr>
-    <tr data-d="6"><td>Saturday</td><td>9 AM to 1 PM</td></tr>
-    <tr data-d="0"><td>Sunday</td><td>Closed</td></tr>
-   </tbody></table>
-  </div>
-  <div>
-   <form class="card" id="apForm" data-demo="apOk" novalidate>
-    <h3 style="font-size:1.6rem;margin-bottom:var(--s4)">Request an appointment</h3>
-    <div class="row2">
-     <div class="field"><label for="a-name">Name</label><input id="a-name" autocomplete="name" required><div class="err" hidden>Please add your name.</div></div>
-     <div class="field"><label for="a-phone">Phone</label><input id="a-phone" type="tel" autocomplete="tel" required><div class="err" hidden>Please add a phone number.</div></div>
-    </div>
-    <div class="field"><label for="a-car">Car</label><input id="a-car" placeholder="Year, make and model" required><div class="err" hidden>Please add your car.</div></div>
-    <div class="field"><label for="a-what">What's going on?</label><textarea id="a-what" placeholder="Noises, warning lights, or the service you need"></textarea></div>
-    <button class="btn btn-red" type="submit" style="width:100%">Send request</button>
-    <p class="demo-note"><b>Demo form.</b> This is a website concept. Nothing is sent or saved.</p>
-   </form>
-   <div class="ok" id="apOk" hidden tabindex="-1">
-    <h3>Demo complete.</h3>
-    <p>On the real site this request would go straight to the shop. Nothing was sent or saved.</p>
-    <button class="btn btn-ink" type="button" data-again="apForm">Start over</button>
-   </div>
-  </div>
- </div>
-</section>
+</div></section>
 </main>
 
-<footer>
- <div class="wrap">
-  <div class="ft"><div><b>Bethpage Auto Repair Inc</b><p style="margin:4px 0 0">4260 Hicksville Rd, Bethpage, NY 11714</p></div><div><a href="tel:+15167356671">(516) 735-6671</a></div></div>
-  <p class="dis">Independent website concept designed by Lisette Colon. Not affiliated with or approved by Bethpage Auto Repair Inc. Address, hours, rating and review quotes are from the business's public Google listing, checked October 2026. The service list is illustrative and should be confirmed with the shop.</p>
- </div>
-</footer>
-<a class="btn btn-red mobile-call" href="tel:+15167356671">Call the shop &middot; (516) 735-6671</a>
+<footer><div class="wrap">
+ <div class="r"><span><b>Bethpage Auto Repair Inc</b> · 4260 Hicksville Rd, Bethpage, NY 11714</span><a href="tel:+15167356671">(516) 735-6671</a></div>
+ <p class="dis">Independent website concept designed by Lisette Colon. Not affiliated with or approved by Bethpage Auto Repair Inc. Address, hours, rating and review topics are from the business's public Google listing, checked October 2026. The service list, symptom guide and booking form are sample content to confirm with the shop.</p>
+</div></footer>
+<div class="mbar"><a class="btn btn-o" href="#book">Book</a><a class="btn btn-k" href="tel:+15167356671">Call</a></div>
 
 <script>
 (function(){
-var d=document,$$=function(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))};
-var mb=d.querySelector(".menu-btn"),nav=d.getElementById("nav");
-mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o);mb.textContent=o?"Close":"Menu";});
-$$("#nav a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");mb.setAttribute("aria-expanded",false);mb.textContent="Menu";});});
-/* open now, using New York time */
-try{var p=new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date());
- var g=function(t){return (p.find(function(x){return x.type===t})||{}).value};var wd=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(g("weekday"));var h=+g("hour")%24+(+g("minute"))/60;
- var close=wd===0?0:(wd===6?13:17),open=wd===0?0:9,el=d.getElementById("openNow");
- if(h>=open&&h<close){el.textContent="Open now, until "+(close===13?"1 PM":"5 PM");}else{el.textContent="Closed now";el.classList.add("closed");}
- var row=d.querySelector('#hrs tr[data-d="'+wd+'"]');if(row)row.className="today";}catch(e){}
-$$("form[data-demo]").forEach(function(f){f.addEventListener("submit",function(e){e.preventDefault();var bad=null;$$("[required]",f).forEach(function(i){var ok=!!i.value.trim();var er=i.parentNode.querySelector(".err");if(er)er.hidden=ok;i.setAttribute("aria-invalid",!ok);if(!ok&&!bad)bad=i;});if(bad){bad.focus();return;}var ok=d.getElementById(f.getAttribute("data-demo"));f.hidden=true;ok.hidden=false;ok.focus();});});
-$$("[data-again]").forEach(function(b){b.addEventListener("click",function(){var f=d.getElementById(b.getAttribute("data-again"));f.reset();b.closest(".ok").hidden=true;f.hidden=false;f.querySelector("input").focus();});});
+var d=document,$=function(s,r){return(r||d).querySelector(s)},$$=function(s,r){return[].slice.call((r||d).querySelectorAll(s))};
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches,NS="http://www.w3.org/2000/svg";
+var mb=$(".menu"),nav=$("#nav");mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o);mb.textContent=o?"Close":"Menu"});
+$$("#nav a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open");mb.setAttribute("aria-expanded",false);mb.textContent="Menu"})});
+
+/* gauge 0..5, 180deg sweep */
+var g=$("#gauge"),cx=150,cy=150,R=118;
+function pt(a,r){var t=(180-a)*Math.PI/180;return[cx+r*Math.cos(t),cy-r*Math.sin(t)];}
+function el(n,a){var e=d.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);g.appendChild(e);return e;}
+var p0=pt(0,R),p1=pt(180,R),arc="M"+p0+" A"+R+" "+R+" 0 0 1 "+p1;
+el("path",{"class":"trk",d:arc});var v=el("path",{"class":"val",d:arc});var len=Math.PI*R;v.style.setProperty("--len",len);v.style.setProperty("--frac",4.9/5);
+for(var i=0;i<=50;i++){var a=i/50*180,big=i%10===0,q=pt(a,R-14),w=pt(a,R-(big?30:22));el("line",{"class":"tk"+(big?" b":""),x1:q[0],y1:q[1],x2:w[0],y2:w[1]});if(big){var tp=pt(a,R-44);var tx=el("text",{x:tp[0],y:tp[1]+4,"text-anchor":"middle"});tx.textContent=i/10;}}
+var nd=d.createElementNS(NS,"g");nd.setAttribute("class","needle");nd.innerHTML='<path d="M146 150 L150 50 L154 150 Z" fill="#ff5a1f"/><circle cx="150" cy="150" r="10" fill="#fbfaf7"/><circle cx="150" cy="150" r="4" fill="#111418"/>';g.appendChild(nd);
+nd.style.setProperty("--rot",(-90+4.9/5*180)+"deg");
+var hero=$(".hero");setTimeout(function(){hero.classList.add("go");$(".shop").classList.add("go")},60);
+/* note: .go on .shop drives gauge */
+
+/* live hours (New York time) */
+var H={0:null,1:[9,17],2:[9,17],3:[9,17],4:[9,17],5:[9,17],6:[9,13]},DN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function ny(){var s=new Date().toLocaleString("en-US",{timeZone:"America/New_York"});return new Date(s);}
+function f12(h){return(h%12||12)+(h<12?" AM":" PM");}
+function status(){var n=ny(),day=n.getDay(),h=n.getHours()+n.getMinutes()/60,t=H[day],open=t&&h>=t[0]&&h<t[1],txt;
+ if(open)txt="Open now · until "+f12(t[1]);else{var k=day,first=true;for(var j=0;j<8;j++){var tt=H[k];if(tt&&(!first||h<tt[0])){txt="Closed · opens "+(j===0?"today":j===1?"tomorrow":DN[k])+" "+f12(tt[0]);break;}k=(k+1)%7;first=false;}}
+ [["st","stT"],["st2","stT2"]].forEach(function(p){$("#"+p[0]).classList.toggle("open",!!open);$("#"+p[1]).textContent=txt;});
+ var tb=$("#hrs");tb.innerHTML="";[1,2,3,4,5,6,0].forEach(function(k){var tr=d.createElement("tr");if(k===day)tr.className="today";tr.innerHTML="<td>"+DN[k]+"</td><td>"+(H[k]?f12(H[k][0])+" to "+f12(H[k][1]):"Closed")+"</td>";tb.appendChild(tr);});}
+status();setInterval(status,60000);
+
+/* reveals */
+var io=("IntersectionObserver" in window&&!RM)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -12% 0px"}):null;
+$$(".rv,#car,#steps,#words li").forEach(function(e){io?io.observe(e):e.classList.add("in")});
+
+/* car hotspots + symptom finder */
+var Z={
+ diag:{t:"Dashboard warning lights",a:"Diagnostics",x:46,y:40,txt:"A light on the dash is the car reporting a fault. The shop reads the codes and checks the car properly before talking about parts."},
+ engine:{t:"Under the hood",a:"Big jobs",x:84,y:62,txt:"Overheating, leaks, rough running or major engine trouble. It gets diagnosed first, then you hear what it costs before any work starts."},
+ brakes:{t:"Brakes",a:"Brakes",x:77.6,y:76,txt:"Squealing, grinding or a soft pedal often points to pads, rotors or brake lines. You see what's worn before anything gets replaced."},
+ susp:{t:"Suspension & steering",a:"Suspension & steering",x:25,y:76,txt:"Clunks over bumps, pulling to one side or a rough ride. Usually a suspension or steering part, checked and explained."},
+ maint:{t:"Oil & fluids",a:"Maintenance",x:51.5,y:79,txt:"Oil changes, fluids, filters, belts and tune-ups. The routine work that keeps the bigger jobs away."}
+};
+var SY=[["Squealing or grinding when I brake","brakes"],["The check engine light is on","diag"],["It pulls to one side","susp"],["Clunk or rattle over bumps","susp"],["Overheating or leaking","engine"],["I'm due for an oil change","maint"],["Something else","diag"]];
+var car=$("#car"),cur=null,curSym="";
+Object.keys(Z).forEach(function(k,i){var z=Z[k],b=d.createElement("button");b.type="button";b.className="hs";b.style.left=z.x+"%";b.style.top=z.y+"%";b.style.setProperty("--dl",(i*.35)+"s");b.setAttribute("aria-pressed","false");b.setAttribute("aria-label",z.t);b.setAttribute("data-z",k);b.innerHTML="<i></i><span>"+z.t+"</span>";b.addEventListener("click",function(){pick(k,"");});car.appendChild(b);});
+var sym=$("#sym");SY.forEach(function(s){var b=d.createElement("button");b.type="button";b.textContent=s[0];b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){$$("button",sym).forEach(function(o){o.setAttribute("aria-pressed",o===b)});pick(s[1],s[0]);});sym.appendChild(b);});
+function pick(k,label){cur=k;curSym=label;var z=Z[k];
+ $$(".zone",car).forEach(function(p){p.classList.toggle("on",p.getAttribute("data-z")===k)});
+ $$(".hs",car).forEach(function(h){h.setAttribute("aria-pressed",h.getAttribute("data-z")===k)});
+ if(!label)$$("button",sym).forEach(function(o){o.setAttribute("aria-pressed","false")});
+ $("#rArea").textContent="Where we'd look first · "+z.a;$("#rTitle").textContent=z.t;$("#rText").textContent=z.txt;$("#bayLbl").textContent=z.t;
+ $("#rBtn").textContent="Book a "+z.a.toLowerCase()+" check";var r=$("#res");r.classList.remove("flash");void r.offsetWidth;r.classList.add("flash");}
+$("#rBtn").addEventListener("click",function(){if(cur){$("#f-msg").value=(curSym?curSym+". ":"")+"Please check: "+Z[cur].t.toLowerCase()+".";}});
+
+/* booking (demo) */
+var sel=$("#f-day"),n=ny(),cnt=0;for(var k=1;cnt<6&&k<14;k++){var x=new Date(n);x.setDate(n.getDate()+k);if(H[x.getDay()]){var o=d.createElement("option");o.textContent=DN[x.getDay()]+", "+x.toLocaleString("en-US",{month:"short",day:"numeric"});sel.appendChild(o);cnt++;}}
+$$("#seg button").forEach(function(b){b.addEventListener("click",function(){$$("#seg button").forEach(function(o){o.setAttribute("aria-pressed",o===b)})})});
+var form=$("#form"),ok=$("#ok");
+form.addEventListener("submit",function(e){e.preventDefault();var bad=null;$$("[required]",form).forEach(function(i){var gd=!!i.value.trim();i.parentNode.querySelector(".err").hidden=gd;i.setAttribute("aria-invalid",!gd);if(!gd&&!bad)bad=i;});if(bad){bad.focus();return;}form.hidden=true;ok.hidden=false;ok.focus();});
+$("#again").addEventListener("click",function(){form.reset();$$(".err",form).forEach(function(e){e.hidden=true});ok.hidden=true;form.hidden=false;$("#f-name").focus();});
 })();
 </script>
 </body>
