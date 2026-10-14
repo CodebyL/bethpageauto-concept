@@ -89,6 +89,7 @@ section{position:relative}
 .bay .ghostword{position:absolute;right:0;top:56px;font-size:clamp(70px,10vw,150px);color:#E4E0DA;z-index:0;pointer-events:none}
 .bay .carbox{position:relative;margin-top:16px;z-index:1}
 .bay .car2{display:block;width:100%}
+.carhit{position:relative}
 .hot{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;border:0;background:#fff;box-shadow:0 0 0 6px rgba(200,22,29,.25),0 4px 12px rgba(0,0,0,.25);cursor:pointer;display:grid;place-items:center;transition:transform .25s,box-shadow .25s}
 .hot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--red)}
 .hot[aria-pressed="true"]{transform:scale(1.18);box-shadow:0 0 0 9px rgba(200,22,29,.35),0 4px 12px rgba(0,0,0,.3)}
@@ -193,17 +194,18 @@ footer .giant{font-size:clamp(90px,17vw,300px);color:#1A1A1D;text-align:center;l
 @media (max-width:1100px){nav.main{gap:24px}}
 @media (max-width:980px){
  nav.main,header .slash.hdr{display:none}.menubtn{display:inline-flex}
- .hero{min-height:auto;background:linear-gradient(180deg,var(--field) 0 34%,var(--ink) 34% 100%)}
+ .hero{min-height:auto;background:var(--ink)}
+ .hero .lede{background:var(--field);padding-bottom:30px;max-width:none}
  .hero::before{display:none}
  .hero .lede{grid-template-columns:1fr;gap:14px}
  .hero .lede p{padding-left:0}
- .word{position:relative;top:auto;transform:none;margin-top:30px;background:linear-gradient(180deg,#0B0B0C 0 52%,#7E0A0F 52% 100%);-webkit-background-clip:text;background-clip:text;font-size:22vw}
+ .word{position:relative;top:auto;transform:none;margin-top:24px;background:none;color:#930B11;font-size:22vw}
  .anim .word{animation-name:up}
  .carwrap{margin-top:-11vw;transform:none;width:96vw}
  .specs{grid-template-columns:repeat(3,1fr);gap:18px;padding-top:24px}
  .specs .gap{display:none}
  .specs .cta{grid-column:1/-1;justify-self:center;margin-top:8px}
- .specs .s span{font-size:14px}.specs .s b{font-size:17px}
+ .specs .s span{font-size:13px}.specs .s b{font-size:15px;white-space:normal}
  .intro,.rep .grid,.book .grid{grid-template-columns:1fr}
  .rep{background:linear-gradient(180deg,var(--field) 0 230px,var(--ink2) 230px)}
  .rep .big{text-align:left;font-size:200px;height:230px;display:flex;align-items:center}
@@ -215,7 +217,7 @@ footer .giant{font-size:clamp(90px,17vw,300px);color:#1A1A1D;text-align:center;l
 }
 @media (max-width:640px){
  header.top .row{min-height:72px;gap:12px}
- .brand b{font-size:16px}.brand small{font-size:10px;letter-spacing:.16em}
+ .brand b{font-size:15px;white-space:nowrap}.brand small{font-size:10px;letter-spacing:.16em}
  .sec{padding:76px 0}
  .specs .s b{font-size:15px}
  .steps{grid-template-columns:1fr}.step{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:24px 0}
@@ -320,7 +322,7 @@ footer .giant{font-size:clamp(90px,17vw,300px);color:#1A1A1D;text-align:center;l
     <h3 class="cond" id="bay-title">Check engine light</h3>
     <p class="sub" id="bay-sub">Where the shop would look first</p>
     <div class="ghostword cond" aria-hidden="true">Inspect</div>
-    <div class="carbox"><svg class="car car2" viewBox="0 0 1000 340" aria-hidden="true">
+    <div class="carbox"><div class="carhit"><svg class="car car2" viewBox="0 0 1000 340" aria-hidden="true">
  <defs>
   <linearGradient id="bodyG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0383F"/><stop offset=".38" stop-color="#C8161D"/><stop offset=".72" stop-color="#8A0A10"/><stop offset="1" stop-color="#4A0306"/></linearGradient>
   <linearGradient id="glassG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3A4049"/><stop offset=".55" stop-color="#14171B"/><stop offset="1" stop-color="#0A0B0D"/></linearGradient>
@@ -371,7 +373,7 @@ footer .giant{font-size:clamp(90px,17vw,300px);color:#1A1A1D;text-align:center;l
      <button class="hot" type="button" style="left:77.6%;top:76%" data-z="brakes" aria-label="Brakes and wheels" aria-pressed="false"></button>
      <button class="hot" type="button" style="left:25%;top:76%" data-z="susp" aria-label="Suspension and steering" aria-pressed="false"></button>
      <button class="hot" type="button" style="left:52%;top:62%" data-z="maint" aria-label="Fluids and filters" aria-pressed="false"></button>
-     <div class="bubble" id="bubble" role="status" style="left:52%;top:4%"><b>Engine &amp; diagnostics</b><span id="bubble-t">A scan reads the stored codes, then the shop checks the parts behind them before quoting anything.</span></div>
+     </div><div class="bubble" id="bubble" role="status" style="left:52%;top:4%"><b>Engine &amp; diagnostics</b><span id="bubble-t">A scan reads the stored codes, then the shop checks the parts behind them before quoting anything.</span></div>
     </div>
     <p class="note">Illustration for explanation only. Not your car.</p>
     <div class="cta"><a class="slash" href="#book" id="bay-book">Book a diagnosis</a><a href="tel:+15167356671" style="font-weight:700;color:var(--ink)">or call (516) 735-6671</a></div>
